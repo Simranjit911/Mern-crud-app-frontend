@@ -29,7 +29,7 @@ const Home = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if(input.age<=0){
+    if(input.age.length<=0){
       return toast.error("Enter Valid Age!")
     }
     await axios.post(
