@@ -28,21 +28,22 @@ const Home = () => {
   }, [render]);
 
   async function handleSubmit(e) {
-    e.preventDefault();
-    if(input.age.length<=0){
-      return toast.error("Enter Valid Age!")
+    if (input.age.length <= 0) {
+      return toast.error("Enter Valid Age!");
+    } else {
+      e.preventDefault();
+      await axios.post(
+        "https://mern-crud-backend-u9a9.onrender.com/api/user",
+        input
+      );
+      toast.success("User Added!");
+      setrender(!render);
+      setinput({
+        name: "",
+        email: "",
+        age: "",
+      });
     }
-    await axios.post(
-      "https://mern-crud-backend-u9a9.onrender.com/api/user",
-      input
-    );
-    toast.success("User Added!");
-    setrender(!render);
-    setinput({
-      name: "",
-      email: "",
-      age: "",
-    });
   }
   async function handleDel(id) {
     toast.success("User Deleted!");
