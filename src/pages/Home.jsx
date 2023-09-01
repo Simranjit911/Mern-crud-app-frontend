@@ -13,7 +13,7 @@ const Home = () => {
   });
   useEffect(() => {
     async function get() {
-      let res = await axios.get("http://localhost:3000/api/user/");
+      let res = await axios.get("https://mern-crud-backend-u9a9.onrender.com/api/user/");
       setusers(res.data);
       console.log(users);
     }
@@ -22,7 +22,7 @@ const Home = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await axios.post("http://localhost:3000/api/user", input);
+    await axios.post("https://mern-crud-backend-u9a9.onrender.com/api/user", input);
     setrender(!render);
     setinput({
       name: "",
@@ -31,7 +31,7 @@ const Home = () => {
     });
   }
   async function handleDel(id) {
-    await axios.delete(`http://localhost:3000/api/user/${id}`);
+    await axios.delete(`https://mern-crud-backend-u9a9.onrender.com/api/user/${id}`);
     setrender(!render);
   }
   return (

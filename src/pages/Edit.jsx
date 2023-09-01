@@ -12,14 +12,14 @@ const Edit = () => {
   });
   useEffect(() => {
     async function get() {
-      let res = await axios.get("http://localhost:3000/api/user/s/" + id);
+      let res = await axios.get("https://mern-crud-backend-u9a9.onrender.com/api/user/s/" + id);
       setinput(res.data);
     }
     get();
   }, []);
   async function handleEdit(e){
     e.preventDefault()
-    await axios.put("http://localhost:3000/api/user/"+id,input)
+    await axios.put("https://mern-crud-backend-u9a9.onrender.com/api/user/"+id,input)
     nav("/")
   }
   return (
