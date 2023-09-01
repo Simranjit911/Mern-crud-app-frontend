@@ -92,7 +92,7 @@ const Home = () => {
                   onChange={(e) =>
                     setinput({ ...input, [e.target.name]: e.target.value })
                   }
-                  type="text"
+                  type="email"
                   placeholder="Enter Email.."
                   required
                   autoComplete="off"
