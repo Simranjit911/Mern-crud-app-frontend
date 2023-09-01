@@ -2,6 +2,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {toast} from "react-hot-toast"
 const Edit = () => {
     let nav=useNavigate()
   const { id } = useParams();
@@ -19,14 +20,15 @@ const Edit = () => {
   }, []);
   async function handleEdit(e){
     e.preventDefault()
+    toast.success("User Updated Succesfully!")
     await axios.put("https://mern-crud-backend-u9a9.onrender.com/api/user/"+id,input)
     nav("/")
   }
   return (
     <div>
-      <h1 className="text-lg font-semibold text-center">Update Data</h1>
+      <h1 className="text-lg font-semibold text-center">Update User Data</h1>
       <form
-        className="p-3 flex flex-col gap-3 w-[90%] bg-gray-600 rounded-md shadow-xl justify-center sm:w-[40%] mx-auto"
+        className="p-3 flex flex-col gap-3 w-[80%] bg-gray-600 rounded-md shadow-xl justify-center sm:w-[40%] mx-auto"
         autoComplete="off"
         onSubmit={handleEdit}
       >
