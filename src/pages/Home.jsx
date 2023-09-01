@@ -83,8 +83,8 @@ const Home = () => {
                   name="name"
                   value={input.name}
                   onChange={(e) =>{
-                    if(e.target.value.length<=0)return toast.error("Enter Valid Age")
-                                        
+                    
+
                     setinput({ ...input, [e.target.name]: e.target.value })
                   }
                   }
@@ -109,7 +109,10 @@ const Home = () => {
                   name="age"
                   value={input.age}
                   onChange={(e) =>
-                    setinput({ ...input, [e.target.name]: e.target.value })
+                    {
+                      if(e.target.value.length<=0)return toast.error("Enter Valid Age")
+                      setinput({ ...input, [e.target.name]: e.target.value })
+                    }
                   }
                   type="number"
                   placeholder="Enter Age.."
