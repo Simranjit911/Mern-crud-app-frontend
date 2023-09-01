@@ -60,8 +60,8 @@ const Edit = () => {
           value={input.age}
           onChange={(e) =>
             {
-              if(e.target.value<=0)return toast.error("Enter Valid Age")
-              
+              if(e.target.value<=1)return toast.error("Enter Valid Age")
+
               setinput({ ...input, [e.target.name]: e.target.value })
             }
           }
